@@ -6,11 +6,12 @@
 
 ## Hazelcast
 - 오픈 소스 IDMG
-- 각 Cluster Member가 `Master - Slave`가 아닌 `Peer-to-Peer`의 관계를 가짐
+- 각 Cluster Member가 `Master-Slave`가 아닌 `Peer-to-Peer`의 관계를 가짐
 - ` SQL-like` 구문 사용 가능
 - `DistributedMultiMap`, `Distributed Collections` 자료형 지원
 - `DistributedTopic` & `DistributedEvent` 기능을 통해 Message Queue처럼 이용 가능
-- 
+-
+
 
 ### [docker-compose.yml](https://github.com/HashCitrine/testIMDG/tree/master/hazelcast/docker-compose.yml)
 - Hazelcast를 Docker Container로 복수 구성하여 테스트
@@ -69,9 +70,16 @@ sql> SELECT * FROM my_distributed_map;
 3 row(s) selected
 ```
 
+## HBase(Zookeeper)와 비교
+
+## SurrealDB(FoundationDB, TiKV)와 비교
+
 ## 참조
 - [시스템 성능 개선을 위한 In-Memory 기술 활용 ' In-Memory Data Grid 활용 사례 '](https://www.samsungsds.com/kr/insights/in-memory-data-grid.html)
 - [[Hazelcast] About Hazelcast](https://medium.com/aisland/hazelcast-about-hazelcast-94a30838c0c)
 - [Start a Local Cluster in Docker](https://docs.hazelcast.com/hazelcast/5.3/getting-started/get-started-docker)
 - [[기록은 재산이다] Hazelcast 공유](https://supawer0728.github.io/2018/03/11/hazelcast/)
 - [이제 필요한 것은 In Memory Data Grid](https://d2.naver.com/helloworld/106824)
+- [Spring HazelCast](https://brunch.co.kr/@springboot/56)
+- [HBase](https://www.joinc.co.kr/w/man/12/hadoop/hbase/about)
+- [SurrealDB - 분산 Document-Graph 데이터베이스](https://djlee118.tistory.com/609)
