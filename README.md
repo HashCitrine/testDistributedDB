@@ -6,9 +6,15 @@
 
 ## Hazelcast
 - 오픈 소스 IDMG
-- Docker Container를 복수 구성하여 테스트
+- 각 Cluster Member가 `Master - Slave`가 아닌 `Peer-to-Peer`의 관계를 가짐
+- ` SQL-like` 구문 사용 가능
+- `DistributedMultiMap`, `Distributed Collections` 자료형 지원
+- `DistributedTopic` & `DistributedEvent` 기능을 통해 Message Queue처럼 이용 가능
+- 
 
 ### [docker-compose.yml](https://github.com/HashCitrine/testIMDG/tree/master/hazelcast/docker-compose.yml)
+- Hazelcast를 Docker Container로 복수 구성하여 테스트
+
 ```yaml
 services:
   hazelcast-manager:
@@ -43,7 +49,7 @@ networks:
 ### Example Test
 ``` shell
 $ hz-cli --targets hello-world@{host_ip}:5701 sql
-Connected to Hazelcast 5.3.6 at [{host_ip}]:5701 (+2 more)
+Connected to Hazelcast 5.3.6 at [{host_ip}]:5701 (+2 more)  # 같은 Network의 5702, 5703 포트를 이용하는 Hazelcast가 자동으로 인식된 상태
 Type 'help' for instructions
 sql> CREATE MAPPING my_distributed_map TYPE IMap OPTIONS ('keyFormat'='varchar','valueFormat'='varchar');
 OK
@@ -67,3 +73,5 @@ sql> SELECT * FROM my_distributed_map;
 - [시스템 성능 개선을 위한 In-Memory 기술 활용 ' In-Memory Data Grid 활용 사례 '](https://www.samsungsds.com/kr/insights/in-memory-data-grid.html)
 - [[Hazelcast] About Hazelcast](https://medium.com/aisland/hazelcast-about-hazelcast-94a30838c0c)
 - [Start a Local Cluster in Docker](https://docs.hazelcast.com/hazelcast/5.3/getting-started/get-started-docker)
+- [[기록은 재산이다] Hazelcast 공유](https://supawer0728.github.io/2018/03/11/hazelcast/)
+- [이제 필요한 것은 In Memory Data Grid](https://d2.naver.com/helloworld/106824)
