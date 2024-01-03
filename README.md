@@ -1,4 +1,4 @@
-# testIMDG
+# testDistributedDB
 ## IMDG (In-Memory Data Grid)
 ![IMDG](https://image.samsungsds.com/kr/insights/memory1.jpg?queryString=20231030024258)
 - Redis와 같이 데이터를 Disk가 아닌 `In-Memory`에 저장하며, 이에 `Data Grid` 구조를 이용해 분산 환경에 적용 가능하도록 만들어진 `분산 메모리 시스템`
@@ -13,7 +13,7 @@
 -
 
 
-### [docker-compose.yml](https://github.com/HashCitrine/testIMDG/tree/master/hazelcast/docker-compose.yml)
+### [docker-compose.yml](https://github.com/HashCitrine/testDistributedDB/tree/master/hazelcast/docker-compose.yml)
 - Hazelcast를 Docker Container로 복수 구성하여 테스트
 
 ```yaml
