@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  hazelcast-manager:
+    image: hazelcast/management-center:latest-snapshot
+    ports:
+      - "8080:8080"
+    networks:
+      - hazelcast-network
+  hazelcast-imdg-1:
+    image: hazelcast/hazelcast:5.3.6
+    ports:
+      - "5701:5701"
+    environment:
+      HZ_NETWORK_PUBLICADDRESS: {HOST_IP}:5701
+      HZ_CLUSTERNAME: hello-world
+    networks:
+      - hazelcast-network
+  hazelcast-imdg-2:
+    image: hazelcast/hazelcast:5.3.6
+    ports:
+      - "5702:5702"
+    environment:
+      HZ_NETWORK_PUBLICADDRESS: {HOST_IP}:5702
+      HZ_CLUSTERNAME: hello-world
+    networks:
+      - hazelcast-network
+  hazelcast-imdg-3:
+    image: hazelcast/hazelcast:5.3.6
+    ports:
+      - "5703:5703"
+    environment:
+      HZ_NETWORK_PUBLICADDRESS: {HOST_IP}:5703
+      HZ_CLUSTERNAME: hello-world
+    networks:
+      - hazelcast-network
+
+networks:
+  hazelcast-network:
+    driver: bridge
