@@ -1,6 +1,7 @@
 # testIMDG
 ## IMDG (In-Memory Data Grid)
-- Redis와 같이 데이터를 Disk가 아닌 In-Memory에 저장하며, 이에 `Data Grid` 구조를 이용해 분산 환경에 적용 가능하도록 만들어진 `분산 메모리 시스템`
+![IMDG](https://image.samsungsds.com/kr/insights/memory1.jpg?queryString=20231030024258)
+- Redis와 같이 데이터를 Disk가 아닌 `In-Memory`에 저장하며, 이에 `Data Grid` 구조를 이용해 분산 환경에 적용 가능하도록 만들어진 `분산 메모리 시스템`
 - In-Memory의 빠른 데이터 처리 속도와 분산 환경의 고가용성, 확장성의 장점을 가짐
 
 ## Hazelcast
