@@ -7,11 +7,9 @@
 ## Hazelcast
 - 오픈 소스 IDMG
 - 각 Cluster Member가 `Master-Slave`가 아닌 `Peer-to-Peer`의 관계를 가짐
-- ` SQL-like` 구문 사용 가능
+- `SQL-like` 구문 사용 가능
 - `DistributedMultiMap`, `Distributed Collections` 자료형 지원
 - `DistributedTopic` & `DistributedEvent` 기능을 통해 Message Queue처럼 이용 가능
--
-
 
 ### [docker-compose.yml](https://github.com/HashCitrine/testDistributedDB/tree/master/hazelcast/docker-compose.yml)
 - Hazelcast를 Docker Container로 복수 구성하여 테스트
@@ -49,8 +47,8 @@ networks:
 
 ### Example Test
 ``` shell
-$ hz-cli --targets hello-world@{host_ip}:5701 sql
-Connected to Hazelcast 5.3.6 at [{host_ip}]:5701 (+2 more)  # 같은 Network의 5702, 5703 포트를 이용하는 Hazelcast가 자동으로 인식된 상태
+$ hz-cli --targets hello-world@{HOST_IP}:5701 sql
+Connected to Hazelcast 5.3.6 at [{HOST_IP}]:5701 (+2 more)  # 같은 Network의 5702, 5703 포트를 이용하는 Hazelcast가 자동으로 인식된 상태
 Type 'help' for instructions
 sql> CREATE MAPPING my_distributed_map TYPE IMap OPTIONS ('keyFormat'='varchar','valueFormat'='varchar');
 OK
@@ -70,9 +68,19 @@ sql> SELECT * FROM my_distributed_map;
 3 row(s) selected
 ```
 
-## HBase(Zookeeper)와 비교
+## Distributed DB와 비교
+- 데이터를 In-Memory에 저장하지 않고, DISK에 저장(즉, 영구 저장)
+- IMDG는 데이터 처리 `속도`에 좀 더 포인트를 두고 있지만, Distributed DB는 데이터의 `저장`과 `처리(이용)`에 중점이 있음(데이터 검색, 분석 등)
 
-## SurrealDB(FoundationDB, TiKV)와 비교
+### 1. HBase
+![HBase](https://hbase.apache.org/images/replication_overview.png) 
+### 2. FoundationDB
+![FoundationDB](https://apple.github.io/foundationdb/_images/architecture-1.jpeg)
+### 3. TiKV
+![TiKV](https://tikv.org/img/tikv-architecture.png)
+
+## 기타
+### SurrealDB
 
 ## 참조
 - [시스템 성능 개선을 위한 In-Memory 기술 활용 ' In-Memory Data Grid 활용 사례 '](https://www.samsungsds.com/kr/insights/in-memory-data-grid.html)
